@@ -15,43 +15,38 @@ class NewAccount:
     def getpassword(self):
         return self.__password
     def __str__(self):
-        return f"your name is {self.name},your email is {self.email}"
-    
-carriers=[" Data scientist"," Software developer"," Loading and unloading corge"," accounting and finance"," Arrange the goods"," electrician","sanitation worker"]   
+        return f"your name is : {self.name},your email is : {self.email}, your password is : {self.getpassword()}"   
+carriers=["A- Data scientist","B- Software developer","C- Loading and unloading corge","D- accounting and finance","E- Arrange the goods","F- electrician","G- sanitation worker"]   
 chronic_diseases=['1- Heart disease','2- Cancer','3- Stroke','4- Diabetes','5- Kidney disease']
 class Jobs()  : 
-    def __init__(self,name,email,age,adress,height,weight,carrier,phonenumber,chronicdiseases):
+    def __init__(self,name,email,age,adress,height,weight,carrier,phonenumber,chronicdiseases,var1):
         self.name=name
         self.email=email
-        self.age=int(age)
+        self.age=age
         self.adress=adress
         self.height=height
         self.weight=float(weight)
         self.carrier=carrier
         self.phonenumber=phonenumber
         self.chronicdiseases=chronicdiseases
+        self.var1=var1
+        
+
         if self.weight <40 or self.weight >140:
             print('Sorry, you do not meet the conditions')
-        if self.age>60 :
+        if int(self.age)>60 :
             print('Sorry, you do not meet the conditions')  
     def __str__(self):
-        return f' name : {self.name}, age : {self.age}, email : {self.email}, adress : {self.adress}, height is : {self.height} , weight :{self.weight}, careier :{self.carrier} , phone number : {self.phonenumber},chronic diseases: {self.chronicdiseases}'        
-
-class Employees():
-    def __init__(self,sectionwork,fulltime,parttime):
-        self.sectionwork=sectionwork
-        self.fulltime=fulltime
-        self.parttime=parttime    
-    def __str__(self):
-        return f' sectionwork : {self.sectionwork}, full time : {self.fulltime},part time : {self.parttime }'
-     
+        return f' name : {self.name}, age : {self.age}, email : {self.email}, adress : {self.adress}, height is : {self.height} ,\
+weight :{self.weight}, careier :{self.carrier} , phone number : {self.phonenumber}, chronic diseases: {self.chronicdiseases},Permanent type {self.var1} '        
+    
 Investmentcorporate={'name':"",'email':""}
 lowercost=['5m','6m','7m','8m','9m']
 largestcost=['10m','11m','12m','13m','14m','15m']
 class Investment :
-    def __init__(self,namecompany,emailcompany,cost):
+    def __init__(self,namecompany,Companyemail,cost):
         self.namecompany=namecompany
-        self.emailcompany=emailcompany
+        self.emailcompany=Companyemail
         self.cost=cost
         for i in Investmentcorporate:
             if i =='name':
@@ -78,117 +73,210 @@ class PurchaseGoods :
         if self.productweight < 30000:
             print('Sorry, the quantity is small')   
         else:
-            print('We will contact you soon')   
-# class              
-
+            print('We will contact you soon') 
+class Employees():
+    def printInformation(x=0):
+        for i in employees:
+            print(i, " : " +employees[i])
+        print('Do you want to modify any of the data? ') 
+        change=input('yes or no : ')
+        if change =='yes':
+            for i in employees:
+                print(i) 
+            change2=input('what is the data do you need to change :  ') 
+            if change2=='name':
+                employees['name']=input('enter the new name : ')
+            if change2=="email":
+                employees['email']=input('enter the new email : ') 
+            if change2=='age':
+                employees['age'] =input('enter the new age : ')
+            if change2=='adress':
+                employees['adress']=input('enter the new adress : ')    
+            if change2=='height':
+                employees['height']=input('enter the new heigt : ') 
+            if change2=='weight' :
+                employees['weight']=input('enter the new weight : ')
+            if change2=='phone number':
+                employees['phone number']=input('enter the new phone number : ')
+            else:
+                print('You cannot modify this information')    
+        print(employees)
+suggestions=[]                               
+class SuggestionsAndProblems():
+    
+    def __init__(self,name):
+        self.name=name
+    def Suggestions1(SuggestionsOrProblems):
+        suggestions.append(SuggestionsOrProblems)
+        print('thank you .')
 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< main code :  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-c=1
-v=2
-
-total=0
-print("Do you have an account with us?")
-choose=input("please choose yes or no  : ")
 newaccounts={"name":"","email":"","password":""}
-employees={"name":"",'email':"","age":"",'adress':"",'height':"","weight":"","carrier":"","phonenumber":"","chronicdiseases":"","sectionwork":"","fulltime":"","parttime":""}
+employees={"name":"",'email':"","age":"",'adress':"",'height':"","weight":"",'carrier':"","phone number":"","chronicdiseases":"",'Permanent type':""}
+print("Do you have an account with us?")
+print()
+choose=input("please choose yes or no  : ")
+print()
 if choose=="no":
     name=input("enter your name : ")
-    while c<v:
+    var1=1     #
+    var2=2
+    while var1<var2:
         email=input("enter your email : ")
         for i in range(len(email)):
-            if email[i]!='@':
-                print('wrong input .')
-                c+=1
-                v+=1
-        break                       
-    print('Your password must consist of at least eight characters . ')    
-    password=input('enter your password : ')
-    for i in range(len(password)):
-        total+=1
+            if email[i]=="@":
+                var1+=1 
+                break                         
+    print('Your password must consist of at least eight characters . ')
+    total=0  
+    var3=1
+    var4=2
+    while var3<var4:
+        password=input('enter your password : ')   
+        for i in range(len(password)):
+            total+=1
         if total<8:
             print('wrong input .')
+            var3+=1
+            var4+=1
+        else:
+            var3+=1
             break
-        newacc=NewAccount(name,email,password)  
-        print("<<<<<<  complate account  >>>>>>") 
-    for i in range(10):     
-        print("What services do you want?")
-        print('1-Job search')
-        print('2-Investment')
-        print('3-Purchase Goods')
-        print('4-employee')
-        schoos2=int(input('Type the service number you want : '))
-        if schoos2==1 :
-             name=input("enter your name : ")
-             email=input("enter your email : ")
-             age=input('enter your age : ')
-             adress=input('enter your adress : ')
-             height=input('enter your height  : ')
-             weight=input('enter your weight : ')
-             print(carriers) 
-             carrier=input('Write your specialty as it appears in front of you : ')
-             phonenumber=input('enter your phonenumber : ')
-             chronicdiseases=input('Do you have any serious chronic diseases? Answer yes or no :')
-             if chronicdiseases=='yes' or chronicdiseases=='Yes':
-                 print(chronic_diseases)
-                 choose5=input('Do you have any of these diseases?,enter yes or no : ')
-                 if choose5=='yes':
-                     print('We are sorry')
-                     continue    
-             print('We look forward to seeing you soon .')            
-             staff1=Jobs(name,email,age,adress,height,weight,carrier,phonenumber,chronicdiseases)
-             print(staff1)
-             for i in employees:
-                if i=='name':
-                    employees[i]=name
-                if i=='email':
-                    employees[i]=email
-                if i=='password' :
-                    employees[i]=password
-                if i=='age':
-                    employees[i]==age
-                if i=='adress':
-                    employees[i]=adress
-                if i=="height":
-                    employees[i]=height
-                if i=="weight":
-                    employees[i]=weight
-                if i=="carrier":
-                    employees[i]==carrier
-                if i=="phonenumber":
-                    employees[i]=phonenumber
-                if i=="chronicdiseases":
-                    employees[i]=chronicdiseases    
-             if schoos2==4:
-                sectionwork=input('enter the sectinwork : ')
-                fulltime=input('full time input yes or no :')
-                parttime=input(' part time input yes or no :')
-                if fulltime=="yes":
-                     print('Monthly Salary is 500 JD')
-                else :
-                     print('She works part-time and will take up to an hour 2JD')
-                for i in employees:
-                    if i=="sectionwork":
-                        employees[i]=sectionwork
-                    if i =="fulltime" :
-                        employees[i]==fulltime
-                    if i=='part time':
-                        employees[i]==parttime 
-                    print(employees)          
-        if schoos2==2:
-             companyname=input('write company name  : ')
-             emailcompany=input('write company email : ')
-             cost=int(input('enter your cost : '))
-             investment=Investment(companyname,emailcompany,cost)
-             print(investment)
-        if schoos2==3:
-             print('This system supports the gross domestic product by purchasing vegetables and fruits from citizens .')
-             name=input('entar your name : ')
-             phonenumber=input('enter your phone number :')
-             producttype=input('enter product type : ')
-             productweight=int(input('enter product weight : '))
-             PurchaseGoods1=PurchaseGoods(name,phonenumber,producttype,productweight)
-             print(PurchaseGoods1)
+    newacc=NewAccount(name,email,password)
+    print(newacc)  
+print("<<<<<<<<<<<<<<<<<<<<<<<  complate account  >>>>>>>>>>>>>>>>>>>>>>>>>>") 
+for i in range(10):     
+    print("What services do you want?")
+    print('1-Job search')
+    print('2-Investment')
+    print('3-Purchase Goods')
+    print('4-employee')
+    print('5-problems and suggestions')
+    print('*'*60)
+    schoos2=int(input('Type the service number you want : '))
+    if schoos2==1 :
+        name=input("enter your name : ")
+        c=1     #
+        v=2
+        while c<v:
+            email=input("enter your email : ")
+            for i in range(len(email)):
+                if email[i]=="@":
+                    c+=1 
+                    break
+        age=input('enter your age : ')
+        adress=input('enter your adress : ')
+        height=input('enter your height  : ')
+        weight=input('enter your weight : ')
+        carrier =''
+        for i in carriers:
+            print(i)
+        character=input('Enter your specialty code : ')
+        if character=='A':
+            carrier='Data scientist'
+        elif character=='B':
+            carrier='Software developer'
+        elif   character=='C':
+            carrier ='Loading and unloading corge'
+        elif character=='D':
+            carrier ='accounting and finance'
+        elif character=='E':
+            carrier ='Arrange the goods'
+        elif character=='F':
+            carrier ='electrician'
+        elif character=='G':
+            carrier ='sanitation worker'
+        else:
+           print('wrong input')
+        print(carrier)   
+        phonenumber=input('enter your phone number : ')
+        print()
+        chronicdiseases=input('Do you have any serious chronic diseases? Answer yes or no :')
+        if chronicdiseases=='yes' or chronicdiseases=='Yes':
+                print(chronic_diseases)
+                for i  in chronic_diseases:
+                    print(i)
+                print('Do you have any of these diseases?')    
+                choose5=input('enter yes or no : ')
+                if choose5=='yes':
+                    print('We are sorry')
+                    break
+                else:
+                    continue
+        var1=" full time "      
+        fulltime=input('full time input yes or no :')
+        if fulltime =='yes':
+            print('Monthly Salary is 500 JD')
+            var1='full time'
+        else:
+            print('She works part-time and will take up to an hour 2JD')
+            var1='part time '           
+        print('We look forward to seeing you soon .')            
+        staff1=Jobs(name,email,age,adress,height,weight,carrier,phonenumber,chronicdiseases,var1)
+        print(staff1)
+        for i in employees:
+            if i=='name':
+                employees[i]=name
+            if i=='email':
+                employees[i]=email
+            if i=='age':
+                employees[i]==age
+            if i=='adress':
+                employees[i]=adress
+            if i=="height":
+                employees[i]=height
+            if i=="weight":
+                employees[i]=weight
+            if i=="carrier":
+                employees[i]==carrier
+            if i=="phone number":
+                employees[i]=phonenumber
+            if i=="chronicdiseases":
+                employees[i]=chronicdiseases
+            if i =="Permanent type" :
+                employees[i]==var1
+    if schoos2==2:
+        companyname=input('write company name  : ')
+        c=1     #
+        v=2
+        while c<v:
+            Companyemail=input('write company email : ')
+            for i in range(len(email)):
+                if email[i]=="@":
+                    c+=1 
+                    break
+        cost=int(input('enter your cost : '))
+        investment=Investment(companyname,Companyemail,cost)
+        print(investment)
+    if schoos2==3:
+        print('This system supports the gross domestic product by purchasing vegetables and fruits from citizens .')
+        name=input('entar your name : ')
+        phonenumber=input('enter your phone number :')
+        producttype=input('enter product type : ')
+        productweight=int(input('enter product weight : '))
+        PurchaseGoods1=PurchaseGoods(name,phonenumber,producttype,productweight)
+        print(PurchaseGoods1)
+    if schoos2==4:
+        name=input('entar your name : ') 
+        email=input('enter your email : ')
+        password=input('enter your password : ')
+        if newaccounts['name']==name:
+            print('ture')
+        if newaccounts['email']==email :
+            staff2=Employees()
+            staff2.printInformation()           
+    if schoos2==5:
+           print('This system is for problems and suggestions')
+           name=input('enetr your name : ')
+           problemsandsuggestions=SuggestionsAndProblems(name)
+           Suggestions1=input('enter your problems or suggestions ')
+           suggestions.append(Suggestions1)
+           print(suggestions)
+           print('*'*60)
+
+#<<<<<<<<<<<<<<<<<<<<the end >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>           
+
+
+
     
 
 
