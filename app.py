@@ -16,8 +16,6 @@ class NewAccount:
         return self.__password
     def __str__(self):
         return f"your name is : {self.name},your email is : {self.email}, your password is : {self.getpassword()}"   
-carriers=["A- Data scientist","B- Software developer","C- Loading and unloading corge","D- accounting and finance","E- Arrange the goods","F- electrician","G- sanitation worker"]   
-chronic_diseases=['1- Heart disease','2- Cancer','3- Stroke','4- Diabetes','5- Kidney disease']
 class Jobs()  : 
     def __init__(self,name,email,age,adress,height,weight,carrier,phonenumber,chronicdiseases,var1):
         self.name=name
@@ -29,7 +27,7 @@ class Jobs()  :
         self.carrier=carrier
         self.phonenumber=phonenumber
         self.chronicdiseases=chronicdiseases
-        self.var1=var1
+        self.var1=var1                    
         
 
         if self.weight <40 or self.weight >140:
@@ -101,24 +99,22 @@ class Employees():
             else:
                 print('You cannot modify this information')    
         print(employees)
-suggestions=[]                               
-class SuggestionsAndProblems():
-    
-    def __init__(self,name):
-        self.name=name
-    def Suggestions1(SuggestionsOrProblems):
-        suggestions.append(SuggestionsOrProblems)
-        print('thank you .')
+                               
 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< main code :  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Here we find all the list and dictionary used
+suggestions=[]
+carriers=["A- Data scientist","B- Software developer","C- Loading and unloading corge","D- accounting and finance","E- Arrange the goods","F- electrician","G- sanitation worker"]   
+chronic_diseases=['1- Heart disease','2- Cancer','3- Stroke','4- Diabetes','5- Kidney disease']
 newaccounts={"name":"","email":"","password":""}
 employees={"name":"",'email':"","age":"",'adress':"",'height':"","weight":"",'carrier':"","phone number":"","chronicdiseases":"",'Permanent type':""}
+# ------------------------------------------------------------------------------
 print("Do you have an account with us?")
 print()
 choose=input("please choose yes or no  : ")
 print()
 if choose=="no":
     name=input("enter your name : ")
-    var1=1     #
+    var1=1                           #var1 and var2 They are two variables in order to verify the email
     var2=2
     while var1<var2:
         email=input("enter your email : ")
@@ -127,8 +123,8 @@ if choose=="no":
                 var1+=1 
                 break                         
     print('Your password must consist of at least eight characters . ')
-    total=0  
-    var3=1
+    total=0                         # it is variable to sum how many character in password
+    var3=1                          #var3 and var4 They are two variables in order to verify the password
     var4=2
     while var3<var4:
         password=input('enter your password : ')   
@@ -155,7 +151,7 @@ for i in range(10):
     schoos2=int(input('Type the service number you want : '))
     if schoos2==1 :
         name=input("enter your name : ")
-        c=1     #
+        c=1                      # c and v They are two variables in order to verify the email
         v=2
         while c<v:
             email=input("enter your email : ")
@@ -200,9 +196,7 @@ for i in range(10):
                 if choose5=='yes':
                     print('We are sorry')
                     break
-                else:
-                    continue
-        var1=" full time "      
+        var1=" full time "                  #It is a variable to determine full-time or part-time
         fulltime=input('full time input yes or no :')
         if fulltime =='yes':
             print('Monthly Salary is 500 JD')
@@ -216,27 +210,28 @@ for i in range(10):
         for i in employees:
             if i=='name':
                 employees[i]=name
-            if i=='email':
+            elif i=='email':
                 employees[i]=email
-            if i=='age':
-                employees[i]==age
-            if i=='adress':
+            elif i=='age':
+                employees[i]=age
+            elif i=='adress':
                 employees[i]=adress
-            if i=="height":
+            elif i=="height":
                 employees[i]=height
-            if i=="weight":
+            elif i=="weight":
                 employees[i]=weight
-            if i=="carrier":
-                employees[i]==carrier
-            if i=="phone number":
+            elif i=="carrier":
+                employees[i]=carrier
+            elif i=="phone number":
                 employees[i]=phonenumber
-            if i=="chronicdiseases":
+            elif i=="chronicdiseases":
                 employees[i]=chronicdiseases
-            if i =="Permanent type" :
-                employees[i]==var1
+            elif i =="Permanent type" :
+                employees[i]=var1  
+        print('*'*60)       
     if schoos2==2:
         companyname=input('write company name  : ')
-        c=1     #
+        c=1                                      #  c and v They are two variables in order to verify the email
         v=2
         while c<v:
             Companyemail=input('write company email : ')
@@ -255,6 +250,7 @@ for i in range(10):
         productweight=int(input('enter product weight : '))
         PurchaseGoods1=PurchaseGoods(name,phonenumber,producttype,productweight)
         print(PurchaseGoods1)
+        print('*'*60)  
     if schoos2==4:
         name=input('entar your name : ') 
         email=input('enter your email : ')
@@ -263,11 +259,11 @@ for i in range(10):
             print('ture')
         if newaccounts['email']==email :
             staff2=Employees()
-            staff2.printInformation()           
+            staff2.printInformation()
+        print('*'*60)               
     if schoos2==5:
            print('This system is for problems and suggestions')
            name=input('enetr your name : ')
-           problemsandsuggestions=SuggestionsAndProblems(name)
            Suggestions1=input('enter your problems or suggestions ')
            suggestions.append(Suggestions1)
            print(suggestions)
